@@ -34,29 +34,10 @@ namespace hometask_17.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkCategories", (string)null);
+                    b.ToTable("WorkCategories");
                 });
 
             modelBuilder.Entity("hometask_17.Models.WorkProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("WorkProducts", (string)null);
-                });
-
-            modelBuilder.Entity("hometask_17.Models.WorkProductCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,45 +48,36 @@ namespace hometask_17.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("WorkProductCategories", (string)null);
-                });
-
-            modelBuilder.Entity("hometask_17.Models.WorkProductCategory", b =>
-                {
-                    b.HasOne("hometask_17.Models.WorkCategory", "category")
-                        .WithMany("WorkProductCategory")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("hometask_17.Models.WorkProduct", "product")
-                        .WithMany("WorkProductCategory")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("category");
-
-                    b.Navigation("product");
-                });
-
-            modelBuilder.Entity("hometask_17.Models.WorkCategory", b =>
-                {
-                    b.Navigation("WorkProductCategory");
+                    b.ToTable("WorkProducts");
                 });
 
             modelBuilder.Entity("hometask_17.Models.WorkProduct", b =>
                 {
-                    b.Navigation("WorkProductCategory");
+                    b.HasOne("hometask_17.Models.WorkCategory", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("hometask_17.Models.WorkCategory", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

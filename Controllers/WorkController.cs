@@ -7,27 +7,19 @@ namespace hometask_17.Controllers
 {
     public class WorkController : Controller
     {
-        private readonly PurpleBuzzDbContext? _context=new();
-        //public WorkController(PurpleBuzzDbContext? context)
-        //{
-        //    _context = context;
-        //}
-
-        public IActionResult Index()
+        private readonly PurpleBuzzDbContext? _context;
+        public WorkController(PurpleBuzzDbContext? context)
         {
-            WorkMV workMV = new WorkMV()
-            {
-                categories=_context.WorkCategories.ToList(),
-                products=_context.WorkProducts.ToList(),
-                productCategories=_context.WorkProductCategories
-                .Include(x => x.product)
-                .Include(x => x.category)
-                .OrderByDescending(x => x.Id)
-                .ToList()
+            _context = context;
+        }
 
-            };
+        public async Task<IActionResult> Index()
+        {
+            var Category = await _context.WorkCategories
+                .Include(x=>x.Products)
+                .ToListAsync();
 
-            return View(workMV);
+            return View(Category);
         }
     }
 }

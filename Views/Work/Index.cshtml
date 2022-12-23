@@ -1,4 +1,4 @@
-﻿@model WorkMV
+﻿@model List<WorkCategory>
 @{
     ViewData["Title"] = "Work";
 }
@@ -27,42 +27,40 @@
     <div class="row justify-content-center my-5">
         <div class="filter-btns shadow-md rounded-pill text-center col-auto">
             <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" data-filter=".project" href="#">All</a>
-            @for (int i = 0; i < Model.categories.Count; i++)
+            @foreach (var item in Model)
             {
-                <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".@Model.categories[i].Name" href="#">@Model.categories[i].Name</a>
+                <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".@item.Name.Replace(" ","")" href="#">@item.Name</a>
             }
+
 
 
         </div>
     </div>
 
     <div class="row projects gx-lg-5">
-        @for (int i = 0; i < Model.products.Count; i++)
+        @foreach (var cat in Model)
         {
-            <a href="work-single.html" class="col-sm-6 col-lg-4 text-decoration-none project
-            @for (int j = 0; j < Model.productCategories.Count; j++)
-                {
-                    if(Model.products[i].Id==Model.productCategories[j].ProductId){
-                        @Model.productCategories[j].category.Name 
-                   }
-                }
-            ">
-                <div class="service-work overflow-hidden card mb-5 mx-5 m-sm-0">
-                    <img class="card-img-top" src="~/assets/img/our-work-01.jpg" alt="...">
+            @foreach (var prod in cat.Products)
+            {
+                <a href="work-single.html" class="col-sm-6 col-lg-4 text-decoration-none project @cat.Name.Replace(" ","")">
+                    <div class="service-work overflow-hidden card mb-5 sm-0">
+                    <img class="card-img-top" src="~/assets/img/@prod.Path" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title light-300 text-dark">Digital Marketing</h5>
+                        <h5 class="card-title light-300 text-dark">@prod.Name</h5>
                         <p class="card-text light-300 text-dark">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolor.
+                                @foreach (var item in prod.Description.Take(125).ToList())
+                                {
+                                    @item
+                                } 
                         </p>
                         <span class="text-decoration-none text-primary light-300">
-                            Read more <i class='bx bxs-hand-right ms-1'></i>
+                            Read more <i class='bx bxs-hand-right ms-1'>A</i>
                         </span>
                     </div>
                 </div>
             </a>
+            }
         }
-
     </div>
     <div class="row">
         <div class="btn-toolbar justify-content-center pb-4" role="toolbar" aria-label="Toolbar with button groups">

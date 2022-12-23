@@ -1,27 +1,35 @@
+using hometask_17.DAL.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddDbContext(options => options.UseSqlServer(Configuration.GetConnectionString("default"));
+builder.Services.AddDbContext<PurpleBuzzDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("default"))
+    );
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+app.UseAuthorization();
+
 app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.UseEndpoints(endpoints =>
+{
     endpoints.MapControllerRoute(
-         name: "default",
-         pattern: "{controller=Home}/{action=Index}/{id?}")
+      name: "Admin",
+      pattern: "{area:exists}/{controller=Dashboard}/{action=Index}"
+    );
+    endpoints.MapControllerRoute(
+      name: "default",
+      pattern: "{controller=Home}/{action=Index}/{id?}");
+}
 );
 
 app.Run();
