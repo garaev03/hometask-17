@@ -1,0 +1,163 @@
+﻿@model List<WorkCategory>
+@{
+    ViewData["Title"] = "Categories";
+    int num = 1;
+    int Count = 0;
+    int productCount = 0;
+}
+<div class="container mt-5">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <h4 class="card-title">Categories</h4>
+                    <div class="d-flex justify-content-between">
+                        @*search and add category section*@
+                        <div class="input-group w-25" >
+                            <input  type="search" class="inputSearch form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <a class="searchBtn btn btn-outline-success text-start">search</a>
+                        </div>
+                        <div>
+                            <span style="color:#888888">Add Category</span>
+                            <a asp-controller="Categories" asp-action="Create" style="text-decoration:none;">
+                                <button type="button" class="btn btn-success btn-icon text-light">
+                                    <i class="ti-plus" style="font-size:0.7rem"> </i>
+                                </button>
+                            </a>
+                        </div>
+                        @*!search and add category section*@
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="CategoriesTable table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    №
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Products
+                                </th>
+                                <th class="text-center">
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var category in Model.Where(x => x.isDeleted == false))
+                            {
+                                Count = 0;
+                                productCount = 0;
+                                <tr>
+                                    <td>
+                                        @num
+                                    </td>
+                                    <td class="CategoryNames">
+                                        @category.Name
+                                    </td>
+                                    <td>
+                                        @foreach (var item in category.Products)
+                                        {
+                                            Count += 5;
+                                            productCount++;
+                                        }
+                                        <div class="mb-2">@productCount product(s)</div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: @Count%" aria-valuenow="@Count" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-between w-50" style="margin:auto">
+                                            <a class="btn btn-primary">
+                                                <i class="ti-info text-light border border-1 rounded-circle border-light p-1"></i>
+                                            </a>
+                                            <a class="btn btn-warning" asp-action="Update" asp-route-id="@category.Id">
+                                                <i class="ti-marker-alt text-light border border-1 rounded-circle border-light p-1"></i>
+                                            </a>
+                                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@category.Id">
+                                                <i class="ti-trash text-light border border-1 rounded-circle border-light p-1"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                num++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="deletedCategoriesBtn text-primary">Open deleted categories...</a>
+    @{
+        num = 1;
+    }
+    <div class="deletedCategories col-lg-12 grid-margin stretch-card mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h4 class="card-title">Deleted Categories</h4>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    №
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Products
+                                </th>
+                                <th class="text-center">
+                                    Options
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var category in Model.Where(x => x.isDeleted == true))
+                            {
+                                Count = 0;
+                                productCount = 0;
+                                <tr>
+                                    <td>
+                                        @num
+                                    </td>
+                                    <td>
+                                        @category.Name
+                                    </td>
+                                    <td>
+                                        @foreach (var item in category.Products)
+                                        {
+                                            Count += 5;
+                                            productCount++;
+                                        }
+                                        <div class="mb-2">@productCount product(s)</div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: @Count%" aria-valuenow="@Count" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-center w-50" style="margin:auto">
+                                            <a asp-controller="Categories" asp-action="Recover" asp-route-id="@category.Id" class="btn btn-primary text-light">
+                                                Recover
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                num++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
