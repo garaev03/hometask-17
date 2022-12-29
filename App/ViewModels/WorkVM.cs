@@ -6,5 +6,6 @@ namespace hometask_17.ViewModels
     {
         public List<WorkCategory> Categories { get; set; }
         public List<WorkProduct> Products { get; set; }
+        public int Count { get; set; }
     }
 }

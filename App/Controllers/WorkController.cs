@@ -25,7 +25,8 @@ namespace hometask_17.Controllers
                      .Take(3)
                      .Where(p => p.isDeleted == false)
                      .Include(x => x.Images)
-                     .ToListAsync()
+                     .ToListAsync(),
+                Count = _context.WorkProducts.Count()
             };
 
             return View(work);

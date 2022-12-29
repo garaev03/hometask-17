@@ -30,13 +30,14 @@
             <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4 active" data-filter=".project" href="#">All</a>
             @foreach (var item in Model.Categories)
             {
-                <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-filter=".@item.Name.Replace(" ","")" href="#">@item.Name</a>
+                <a class="filter-btn btn rounded-pill btn-outline-primary border-0 m-md-2 px-md-4" data-searchable="true" data-filter=".@item.Name.ToLower()" href="#">@item.Name</a>
             }
         </div>
     </div>
 
     <div class="row products gx-lg-5">
         <partial name="/Views/Shared/_WorkProductsPartialView.cshtml" model="@Model.Products"></partial>
+        <input hidden value="@Model.Count" class="hiddenCount">
     </div>
 
     <div class="text-center">
