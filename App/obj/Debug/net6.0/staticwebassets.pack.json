@@ -661,6 +661,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\banner-img-02.svg"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\default.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\default.jpg"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\favicon.ico",
       "PackagePath": "staticwebassets\\assets\\img\\favicon.ico"
     },

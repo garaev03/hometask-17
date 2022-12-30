@@ -21,6 +21,7 @@ let listCount = 0
 //        $(".loadMore").remove()
 //    }
 //})
+let addtocartbutton = document.querySelectorAll(".ProductAddToCart")
 
 listCount = $(".hiddenCount").val()
 loadMore.addEventListener("click", () => {
@@ -29,8 +30,37 @@ loadMore.addEventListener("click", () => {
         .then(text => {
             $(".products").append(text)
             skip += take
-            if (listCount < skip+take) {
+            //refreshing add to cart buttons
+            addtocartbutton = document.querySelectorAll(".ProductAddToCart")
+            ClickedAddToCart()
+            //
+            if (listCount < skip + take) {
                 $(".loadMore").remove()
             }
         })
 })
+//add to cart button and getting id
+ function ClickedAddToCart() {
+    for (let i = 0; i < addtocartbutton.length; i++) {
+        addtocartbutton[i].addEventListener("click", () => {
+            var id=$(".ProductAddToCart").eq(i).data("id")
+            fetch("/Cart/AddToCart?id="+id)
+            .then(resp=> resp.text())
+            .then(text=>{
+                console.log(text);
+                if(text=="false"){
+                    window.location.href="/Error/Error404"
+                }
+                else{
+                    var myAlert=document.querySelector(".alerts").style.display="block"
+                    console.log(myAlert);
+                }
+            })
+        })
+    }
+}
+
+ClickedAddToCart()
+//
+
+
