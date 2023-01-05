@@ -39,23 +39,38 @@ loadMore.addEventListener("click", () => {
             }
         })
 })
+
+//
+{/* <div class="alert alert-success alert-dismissible fade show d-flex justify-content-between pe-2" style="width:30rem;" role="alert">
+            <span class="pt-2">Item Added Succesfully!</span>
+            <button betype="button" class="btn" data-bs-dismiss="alert" aria-lal="Close">X</button>
+        </div> */}
+//
+
 //add to cart button and getting id
- function ClickedAddToCart() {
+function ClickedAddToCart() {
     for (let i = 0; i < addtocartbutton.length; i++) {
         addtocartbutton[i].addEventListener("click", () => {
-            var id=$(".ProductAddToCart").eq(i).data("id")
-            fetch("/Cart/AddToCart?id="+id)
-            .then(resp=> resp.text())
-            .then(text=>{
-                console.log(text);
-                if(text=="false"){
-                    window.location.href="/Error/Error404"
-                }
-                else{
-                    var myAlert=document.querySelector(".alerts").style.display="block"
-                    console.log(myAlert);
-                }
-            })
+            var id = $(".ProductAddToCart").eq(i).data("id")
+            console.log($(addtocartbutton[i]).data("id"));
+            console.log(id);
+            fetch("/Cart/AddToCart?id=" + id)
+                .then(resp => resp.text())
+                .then(text => {
+                    console.log(text);
+                    if (text == "false") {
+                        window.location.href = "/Error/Error404"
+                    }
+                    else {
+                        $(".alerts").append('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-between pe-2" style="width:30rem;" role="alert"> <span class="pt-2">Item Added Succesfully!</span><button betype="button" class="btn" data-bs-dismiss="alert" aria-lal="Close">X</button></div>')
+                        var alert = $(".alert")
+                        for (let i = 0; i < alert.length; i++) {
+                            setTimeout(() => {
+                                alert[i].remove()
+                            }, 5000);
+                        }
+                    }
+                })
         })
     }
 }
