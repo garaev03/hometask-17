@@ -9,10 +9,12 @@ namespace hometask_17.Areas.Admin.Controllers
     public class ProductsController : Controller
     {
         private readonly PurpleBuzzDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ProductsController(PurpleBuzzDbContext context)
+        public ProductsController(PurpleBuzzDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         public async Task<IActionResult> Main()
@@ -33,13 +35,25 @@ namespace hometask_17.Areas.Admin.Controllers
 
         [HttpPost]
         public IActionResult Create(WorkProduct product)
-        {
+        {   
+            
             if (!ModelState.IsValid)
-            {
                 return View();
-            }
 
-            return Json(product.Name);
+            if(product.CategoryId== 0 || product.CategoryId==null)
+                product.CategoryId = 8;  //8 idli other categoriyasidir
+            Guid guid = new Guid();
+            string RootPath = _env.WebRootPath;
+            string FolderPath = "\\assets\\img\\userImages\\";
+            //string FullName = guid + product.FormFiles[0].FileName;
+            //string Fullpath = Path.Combine(_env.WebRootPath, FolderPath,FullName);
+            //using (FileStream reader=new FileStream("salam","salam"))
+            //{
+
+            //}
+
+
+            return Json(guid);
         }
     }
 }

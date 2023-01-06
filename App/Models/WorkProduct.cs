@@ -1,5 +1,5 @@
-﻿using Microsoft.Build.Framework;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hometask_17.Models
 {
@@ -13,10 +13,11 @@ namespace hometask_17.Models
         public string? Description { get; set; }
         public string? Quote { get; set; }
         public string? Link { get; set; } 
-        [Required]
         public int CategoryId { get; set; }
         public bool isDeleted { get; set; }
         public WorkCategory? Category { get; set; }
+        [NotMapped]
+        public List<IFormFile>? FormFiles { get; set; }
         public List<WorkImage>? Images { get; set; }
 
     }

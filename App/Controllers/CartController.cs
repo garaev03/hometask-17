@@ -50,9 +50,9 @@ namespace hometask_17.Controllers
                 return false;
             }
 
-            //List<CartVM> carts = CheckCookiesCart();
+            List<CartVM> carts = CheckCookiesCart();
 
-            //AddToCookiesCart(id, carts, CheckProductExistenceInCart(id, carts));
+            AddToCookiesCart(id, carts, CheckProductExistenceInCart(id, carts));
 
             return true;
         }

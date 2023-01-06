@@ -18,29 +18,24 @@
                         <label asp-for="Description"></label>
                         <input asp-for="Description" class="form-control" placeholder="Desciption">
                         <span asp-validation-for="Description" class="text-danger"></span>
-
                     </div>
-
                     <div class="form-group">
-                        <label asp-for="Images">Image upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                            <input asp-for="Images" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                            <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                            </span>
-                        </div>
-                        <span asp-validation-for="Images" class="text-danger"></span>
+                        <label>File upload</label><br />
+                        <input type="file"
+                               name="photo"
+                               accept="image/*"
+                               class="inputted file-upload-browse"
+                               asp-for="FormFiles"
+                               multiple>
                     </div>
-
-                    <div class="form-group">
-                        <label asp-for="CategoryId">Select Category</label>
+                    @*<div class="form-group">
+                       <label asp-for="CategoryId">Select Category</label>
                         <select class="form-control" asp-for="CategoryId" d ="Choose">
                             <option >Busnisess</option>
                             <option>Fdsfasds</option>
                         </select>
-                        @*<span asp-validation-for="CategoryId" class="text-danger"></span>*@
-                    </div>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>*@
 
                     <button type="submit" class="btn btn-primary me-2 text-light">Submit</button>
                     <button asp-controller="Products" asp-action="Main" class="btn btn-danger text-light">Cancel</button>
