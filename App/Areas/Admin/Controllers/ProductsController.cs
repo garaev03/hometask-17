@@ -21,7 +21,7 @@ namespace hometask_17.Areas.Admin.Controllers
         {
             List<WorkProduct> products = await _context.WorkProducts
                .Include(c => c.Category)
-               .Include(i=>i.Images)
+               .Include(i => i.Images)
                .OrderBy(x => x.Id)
                .ToListAsync();
             return View(products);
@@ -34,26 +34,38 @@ namespace hometask_17.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(WorkProduct product)
-        {   
-            
+        public async Task<IActionResult> Create(WorkProduct product)
+        {
             if (!ModelState.IsValid)
                 return View();
 
-            if(product.CategoryId== 0 || product.CategoryId==null)
+            if (product.CategoryId == 0)
                 product.CategoryId = 8;  //8 idli other categoriyasidir
-            Guid guid = new Guid();
-            string RootPath = _env.WebRootPath;
-            string FolderPath = "\\assets\\img\\userImages\\";
-            //string FullName = guid + product.FormFiles[0].FileName;
-            //string Fullpath = Path.Combine(_env.WebRootPath, FolderPath,FullName);
-            //using (FileStream reader=new FileStream("salam","salam"))
-            //{
 
-            //}
+            string FolderPath = "assets/img/userImages";
 
+            foreach (var formFile in product.FormFiles)
+            {
+                string FullName = Guid.NewGuid() + "-" + formFile.FileName;
+                string Fullpath = Path.Combine(_env.WebRootPath,FolderPath, FullName);
+                using (FileStream reader = new FileStream(Fullpath, FileMode.Create))
+                {
+                    formFile.CopyTo(reader);
+                    WorkImage image = new()
+                    {
+                        Path = FullName,
+                        Product = product,
+                        isMain = false
+                    };
+                    if (product.FormFiles.IndexOf(formFile)==0)
+                        image.isMain = true;
 
-            return Json(guid);
+                    await _context.WorkImages.AddAsync(image);
+                };
+            }
+            await _context.WorkProducts.AddAsync(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Main");
         }
     }
 }

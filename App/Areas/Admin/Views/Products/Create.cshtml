@@ -7,34 +7,53 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Create Product</h4>
-
-                <form class="forms-sample" action="Create" method="post">
+                    <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label asp-for="Name">Name</label>
-                        <input asp-for="Name"class="form-control" placeholder="Name">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter here...">
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" placeholder="Enter here...">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Title Description</label>
+                        <input asp-for="TitleDescription" class="form-control" placeholder="Enter here...">
+                        <span asp-validation-for="TitleDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Description"></label>
-                        <input asp-for="Description" class="form-control" placeholder="Desciption">
+                        <input asp-for="Description" class="form-control" placeholder="Enter here...">
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="Quote"></label>
+                        <input asp-for="Quote" class="form-control" placeholder="Enter here...">
+                        <span asp-validation-for="Quote" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Link"></label>
+                        <input asp-for="Link" class="form-control" placeholder="Enter here...">
+                        <span asp-validation-for="Link" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label>File upload</label><br />
-                        <input type="file"
-                               name="photo"
-                               accept="image/*"
-                               class="inputted file-upload-browse"
+                        <input accept="image/*"
+                               class="inputted"
                                asp-for="FormFiles"
                                multiple>
+                        <span asp-validation-for="FormFiles" class="text-danger"></span>
                     </div>
                     @*<div class="form-group">
-                       <label asp-for="CategoryId">Select Category</label>
-                        <select class="form-control" asp-for="CategoryId" d ="Choose">
-                            <option >Busnisess</option>
-                            <option>Fdsfasds</option>
-                        </select>
-                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    <label asp-for="CategoryId">Select Category</label>
+                    <select class="form-control" asp-for="CategoryId" d ="Choose">
+                    <option >Busnisess</option>
+                    <option>Fdsfasds</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>*@
 
                     <button type="submit" class="btn btn-primary me-2 text-light">Submit</button>

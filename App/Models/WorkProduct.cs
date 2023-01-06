@@ -7,7 +7,7 @@ namespace hometask_17.Models
     {
         public int Id { get; set; }
         [Required]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public string? Title { get; set; }
         public string? TitleDescription { get; set; }
         public string? Description { get; set; }
@@ -15,10 +15,15 @@ namespace hometask_17.Models
         public string? Link { get; set; } 
         public int CategoryId { get; set; }
         public bool isDeleted { get; set; }
-        public WorkCategory? Category { get; set; }
+        public WorkCategory Category { get; set; }
+        public List<WorkImage>? Images { get; set; }
         [NotMapped]
         public List<IFormFile>? FormFiles { get; set; }
-        public List<WorkImage>? Images { get; set; }
 
+        public WorkProduct()
+        {
+            Category = new WorkCategory();
+            Images = new List<WorkImage>();
+        }
     }
 }
