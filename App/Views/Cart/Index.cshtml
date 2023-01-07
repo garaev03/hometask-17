@@ -1,39 +1,76 @@
 ﻿@model List<CartItemVM>
 @{
     ViewData["Title"] = "Cart";
-    int num = 1;
     double TotalPrice = 0;
+    List<string> CategoryNames = new();
 }
 
-<div class="container mt-5 mb-5" style="height:80vh">
-    <table class="table">
-        <thead>
-            <tr class="bg-secondary text-light">
-                <th scope="col">№</th>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Count</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+<div class="container mt-5 mb-5">
+    @foreach (var CartItem in Model)
+    {
+        int num = 1;
+        bool checkName = false;
+        foreach (string name in CategoryNames)
+        {
+            if (CartItem.CategoryName == name)
             {
-                var price=item.Price*item.Count;
-                <tr class="align-text-bottom">
-                    <th scope="row">@num</th>
-                    <td><img width="100" height="100" src="~/assets/img/@item.MainImage" class="rounded-circle"/></td>
-                    <td>@item.Name</td>
-                    <td>@item.CategoryName</td>
-                    <td>@item.Count</td>
-                    <td>@price$</td>
-                </tr>
-                TotalPrice += price;
-                num++;  
+                checkName = true;
             }
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-end me-5 fs-5 text-light"><span class="me-2 ps-2 pe-2 bg-secondary">Total Price:</span><span class="ps-2 pe-2 bg-secondary">@TotalPrice$</span></div>
+        }
+        @if (!checkName)
+        {
+            CategoryNames.Add(CartItem.CategoryName);
+            <div>
+                <span class="bg-secondary text-light ps-3 pe-3 pb-2 rounded-top" style="font-size:2rem;"> @CartItem.CategoryName</span>
+                <div>
+                    <table class="table table-hover text-center mb-5">
+                        <thead>
+                            <tr class="bg-secondary text-light">
+                                <th scope="col">№</th>
+                                <th scope="col">Image</th>
+                                <th scope=" col">Name</th>
+                                <th class="ps-4" scope="col">Count</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Where(i => i.CategoryName == CartItem.CategoryName))
+                            {
+                                var price = item.Price * item.Count;
+                                <tr class="align-text-bottom">
+                                    <th scope="row">@num</th>
+                                    <td><img width="100" height="100" src="~/assets/img/Product Images/@item.MainImage" class="rounded-circle" /></td>
+                                    <td>
+                                        <a data-id="@item.Id" asp-controller="Work" asp-action="Single" asp-route-id="@item.Id" style="text-decoration: none;font-size:18px;color:black">
+                                            <div style="padding-top:50px;padding-bottom:50px;">
+                                                <span>@item.Name</span>
+                                            </div>
+                                        </a>
+                                    </td>
+
+                                    <td width="400">
+                                        <div class="d-flex justify-content-center ms-4">
+                                            <a class="MinusProduct nav-link"><i class='bx bx-minus-circle bx-sm pt-1'></i></a>
+                                            <input type="number" class="ProductCounter text-center text-light bg-success" value="@item.Count" disabled>
+                                            <a class="PlusProduct nav-link"><i class='bx bx-plus-circle bx-sm  pt-1'></i></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="ProductPrice text-light bg-success rounded-pill p-3">
+                                            @price$
+                                        </span>
+                                    </td>
+                                </tr>
+
+                                TotalPrice += price;
+                                num++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    }
+    <div class="d-flex justify-content-end fs-5 text-light"><span class="me-2 ps-2 pe-2 bg-secondary">Total Price:</span><span class="ps-2 pe-2 bg-secondary">@TotalPrice$</span></div>
 </div>
 

@@ -26,7 +26,7 @@ namespace hometask_17.Controllers
                      .Where(p => p.isDeleted == false)
                      .Include(x => x.Images)
                      .ToListAsync(),
-                Count = _context.WorkProducts.Count()
+                Count = GetProductsCount()
             };
 
             return View(work);
@@ -43,9 +43,9 @@ namespace hometask_17.Controllers
         public async Task<IActionResult> LoadMore(int skip,int take)
         {
             var Products = await _context.WorkProducts
+                       .Where(p => p.isDeleted == false)
                        .Skip(skip)
                        .Take(take)
-                       .Where(p => p.isDeleted == false)
                        .Include(x => x.Images)
                        .Include(x=>x.Category)
                        .ToListAsync();
@@ -53,14 +53,13 @@ namespace hometask_17.Controllers
             return PartialView("_WorkProductsPartialView", Products);
         }
 
-        public async Task<int> GetProductsCount()
+        public int GetProductsCount()
         {
-           var Products= await _context.WorkProducts
+           var Products= _context.WorkProducts
                         .Where(p => p.isDeleted == false)
-                        .ToListAsync();
+                        .ToList();
 
-            var productsCount = Products.Count;
-            return productsCount;
+            return Products.Count;
         }
     }
 }

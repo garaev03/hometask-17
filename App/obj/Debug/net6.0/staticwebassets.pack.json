@@ -289,6 +289,10 @@
       "PackagePath": "staticwebassets\\admin\\js\\dashboard.js"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\admin\\js\\delete-modal.js",
+      "PackagePath": "staticwebassets\\admin\\js\\delete-modal.js"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\admin\\js\\documentation.js",
       "PackagePath": "staticwebassets\\admin\\js\\documentation.js"
     },
@@ -613,6 +617,10 @@
       "PackagePath": "staticwebassets\\assets\\css\\custom.css"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\css\\product-counter.css",
+      "PackagePath": "staticwebassets\\assets\\css\\product-counter.css"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\css\\templatemo.css",
       "PackagePath": "staticwebassets\\assets\\css\\templatemo.css"
     },
@@ -637,6 +645,74 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\boxicons.woff2"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\1464a784-7962-4580-b920-76981f7bb70d-banner-bg-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\1464a784-7962-4580-b920-76981f7bb70d-banner-bg-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\15b56151-6fbb-461d-8ffa-c441f7b1ed82-In4x5M.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\15b56151-6fbb-461d-8ffa-c441f7b1ed82-In4x5M.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\17c2e654-ad9b-4913-a7b4-71b2014c8797-wp6114896.png",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\17c2e654-ad9b-4913-a7b4-71b2014c8797-wp6114896.png"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\1b641e44-3ac3-4971-8c5f-144f99477fb1-wp6114896.png",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\1b641e44-3ac3-4971-8c5f-144f99477fb1-wp6114896.png"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\33dac73b-ef71-44dc-a2c9-1fabef9223b3-wp6114896.png",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\33dac73b-ef71-44dc-a2c9-1fabef9223b3-wp6114896.png"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\3db2ec09-ff1f-4abf-be1f-5dcee479d9f7-banner-bg-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\3db2ec09-ff1f-4abf-be1f-5dcee479d9f7-banner-bg-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\7d2c1efb-9d75-4d6f-9aa0-842ff952aa3d-banner-bg-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\7d2c1efb-9d75-4d6f-9aa0-842ff952aa3d-banner-bg-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\b59147c9-7a24-4887-ab06-8ed6e362ad6d-In4x5M.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\b59147c9-7a24-4887-ab06-8ed6e362ad6d-In4x5M.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\dabb7345-643d-4bb3-b7f6-4035a240b25a-banner-bg-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\dabb7345-643d-4bb3-b7f6-4035a240b25a-banner-bg-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\default.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\default.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\e32c25c1-eda9-4a37-bb47-1408e7c7e925-banner-bg-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\e32c25c1-eda9-4a37-bb47-1408e7c7e925-banner-bg-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-01.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-02.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-03.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-04.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-05.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\Product Images\\our-work-06.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\Product Images\\our-work-06.jpg"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\apple-icon.png",
       "PackagePath": "staticwebassets\\assets\\img\\apple-icon.png"
     },
@@ -659,10 +735,6 @@
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\banner-img-02.svg",
       "PackagePath": "staticwebassets\\assets\\img\\banner-img-02.svg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\default.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\default.jpg"
     },
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\favicon.ico",
@@ -699,30 +771,6 @@
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\feature-work-4.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\feature-work-4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-01.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-02.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-03.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-04.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-04.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-05.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-05.jpg"
-    },
-    {
-      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\our-work-06.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\our-work-06.jpg"
     },
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\img\\pricing.svg",
@@ -877,6 +925,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\bootstrap.bundle.min.js"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\cart-product-counter.js",
+      "PackagePath": "staticwebassets\\assets\\js\\cart-product-counter.js"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\custom.js",
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
@@ -891,6 +943,10 @@
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\jquery.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\product-counter.js",
+      "PackagePath": "staticwebassets\\assets\\js\\product-counter.js"
     },
     {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\templatemo.js",

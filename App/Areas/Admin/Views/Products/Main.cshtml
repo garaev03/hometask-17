@@ -62,7 +62,7 @@
                                         <div class="d-flex justify-content-center ms-3 me-5">
                                             @if (MainImage != null)
                                             {
-                                                <image src="/assets/img/@MainImage.Path"></image>
+                                                <image src="/assets/img/Product Images/@MainImage.Path"></image>
                                             }
                                             else
                                             {
@@ -72,15 +72,15 @@
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center" style="margin:auto">
-                                            <button class="btn btn-primary me-3">
+                                            <a class="btn btn-primary me-3">
                                                 <i class="ti-info text-light border border-1 rounded-circle border-light p-1"></i>
-                                            </button>
-                                            <button class="btn btn-warning me-3">
+                                            </a>
+                                            <a class="btn btn-warning me-3">
                                                 <i class="ti-marker-alt text-light border border-1 rounded-circle border-light p-1"></i>
-                                            </button>
-                                            <button class="btn btn-danger">
+                                            </a>
+                                            <a class="ProductDelete btn btn-danger" data-id="@product.Id">
                                                 <i class="ti-trash text-light border border-1 rounded-circle border-light p-1"></i>
-                                            </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

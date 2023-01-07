@@ -16,7 +16,7 @@ namespace hometask_17.Models
         public int CategoryId { get; set; }
         public bool isDeleted { get; set; }
         public WorkCategory Category { get; set; }
-        public List<WorkImage>? Images { get; set; }
+        public List<WorkImage> Images { get; set; }
         [NotMapped]
         public List<IFormFile>? FormFiles { get; set; }
 

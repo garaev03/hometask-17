@@ -40,56 +40,69 @@ namespace hometask_17.Controllers
             return View(cartItems);
         }
 
-        public bool AddToCart(int id)
+        public bool AddToCart(int id, int count)
         {
-            EmptyResult none = new();
             bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
             if (!CheckExistenceProduct)
-            {
-                RedirectToAction("Error404", "Error");
                 return false;
-            }
-
+        
             List<CartVM> carts = CheckCookiesCart();
 
-            AddToCookiesCart(id, carts, CheckProductExistenceInCart(id, carts));
+            AddToCookiesCart(id, count, carts, CheckProductExistenceInCart(id, count,carts));
 
             return true;
         }
-
-        private bool CheckProductExistenceInCart(int id, List<CartVM> carts)
+        public bool Edit(int id, int count)
         {
+            bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
+            if (!CheckExistenceProduct)
+                return false;
+
+            List<CartVM> carts = CheckCookiesCart();
+
             bool ProductExists = false;
             foreach (var cart in carts)
             {
                 if (cart.WorkProductId == id)
                 {
-                    cart.Count++;
-                    ProductExists = true;
+                    cart.Count = count;
+                    ProductExists=true;
                     break;
                 }
             }
-            return ProductExists;
+
+            AddToCookiesCart(id, count, carts, ProductExists);
+
+            return true;
+        }
+
+        private bool CheckProductExistenceInCart(int id, int count, List<CartVM> carts)
+        {
+            foreach (var cart in carts)
+            {
+                if (cart.WorkProductId == id)
+                {
+                    cart.Count += count;
+                    return true;
+                }
+            }
+            return false;
         }
         private List<CartVM> CheckCookiesCart()
         {
             List<CartVM> carts;
 
             if (Request.Cookies[COOKIES_CART] != null)
-            {
                 carts = JsonSerializer.Deserialize<List<CartVM>>(Request.Cookies[COOKIES_CART]);
-            }
             else
-            {
                 carts = new List<CartVM>();
-            }
 
             return carts;
         }
-        private void AddToCookiesCart(int id, List<CartVM> cart, bool existenceProduct)
+        private void AddToCookiesCart(int id, int count, List<CartVM> cart, bool existenceProduct)
         {
             if (!existenceProduct)
-                cart.Add(new CartVM { WorkProductId = id, Count = 1 });
+                cart.Add(new CartVM { WorkProductId = id, Count = count });
             string cookiesCart = JsonSerializer.Serialize(cart);
             Response.Cookies.Append(COOKIES_CART, cookiesCart);
         }
