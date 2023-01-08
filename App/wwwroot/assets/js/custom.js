@@ -104,17 +104,17 @@ function ClickedAddToCart(addtocartbutton) {
                 .then(resp => resp.text())
                 .then(text => {
                     console.log(text);
+                    var alert = $(".alert")
                     if (text == "false") {
-                        window.location.href = "/Error/Error404"
+                        $(".alerts").append('<div class="alert alert-danger alert-dismissible fade show d-flex justify-content-between pe-2" style="width:30rem;" role="alert"> <span class="pt-2">Failed To Add Item!</span><button betype="button" class="btn" data-bs-dismiss="alert" aria-lal="Close">X</button></div>')
                     }
                     else {
                         $(".alerts").append('<div class="alert alert-success alert-dismissible fade show d-flex justify-content-between pe-2" style="width:30rem;" role="alert"> <span class="pt-2">Item Added Succesfully!</span><button betype="button" class="btn" data-bs-dismiss="alert" aria-lal="Close">X</button></div>')
-                        var alert = $(".alert")
-                        for (let i = 0; i < alert.length; i++) {
-                            setTimeout(() => {
-                                alert[i].remove()
-                            }, 5000);
-                        }
+                    }
+                    for (let i = 0; i < alert.length; i++) {
+                        setTimeout(() => {
+                            alert[i].remove()
+                        }, 5000);
                     }
                 })
         })

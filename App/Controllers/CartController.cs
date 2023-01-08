@@ -45,7 +45,10 @@ namespace hometask_17.Controllers
             bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
             if (!CheckExistenceProduct)
                 return false;
-        
+
+            if (count == 0)
+                return false;
+
             List<CartVM> carts = CheckCookiesCart();
 
             AddToCookiesCart(id, count, carts, CheckProductExistenceInCart(id, count,carts));
@@ -56,6 +59,9 @@ namespace hometask_17.Controllers
         {
             bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
             if (!CheckExistenceProduct)
+                return false;
+
+            if (count == 0)
                 return false;
 
             List<CartVM> carts = CheckCookiesCart();

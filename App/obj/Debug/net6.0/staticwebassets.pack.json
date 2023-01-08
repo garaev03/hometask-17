@@ -613,6 +613,14 @@
       "PackagePath": "staticwebassets\\assets\\css\\boxicon.min.css"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\css\\cart-product-counter-spinner.css",
+      "PackagePath": "staticwebassets\\assets\\css\\cart-product-counter-spinner.css"
+    },
+    {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\css\\cart-trash.css",
+      "PackagePath": "staticwebassets\\assets\\css\\cart-trash.css"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\css\\custom.css",
       "PackagePath": "staticwebassets\\assets\\css\\custom.css"
     },

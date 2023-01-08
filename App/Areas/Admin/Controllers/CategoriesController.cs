@@ -18,7 +18,7 @@ namespace hometask_17.Areas.Admin.Controllers
         public async Task<IActionResult> Main()
         {
             List<WorkCategory> categories = await _context.WorkCategories
-                .Include(x => x.Products)
+                .Include(x => x.Products.Where(x=>!x.isDeleted))
                 .OrderBy(c => c.Id)
                 .ToListAsync();
 

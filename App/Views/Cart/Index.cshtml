@@ -5,6 +5,7 @@
     List<string> CategoryNames = new();
 }
 
+<div class="main-block">
 <div class="container mt-5 mb-5">
     @foreach (var CartItem in Model)
     {
@@ -28,9 +29,10 @@
                             <tr class="bg-secondary text-light">
                                 <th scope="col">№</th>
                                 <th scope="col">Image</th>
-                                <th scope=" col">Name</th>
+                                <th scope="col">Name</th>
                                 <th class="ps-4" scope="col">Count</th>
                                 <th scope="col">Price</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,10 +51,11 @@
                                     </td>
 
                                     <td width="400">
-                                        <div class="d-flex justify-content-center ms-4">
+                                        <div class="CartProductCounterDiv d-flex justify-content-center ms-4">
                                             <a class="MinusProduct nav-link"><i class='bx bx-minus-circle bx-sm pt-1'></i></a>
                                             <input type="number" class="ProductCounter text-center text-light bg-success" value="@item.Count" disabled>
                                             <a class="PlusProduct nav-link"><i class='bx bx-plus-circle bx-sm  pt-1'></i></a>
+                                            <div></div> 
                                         </div>
                                     </td>
                                     <td>
@@ -60,6 +63,7 @@
                                             @price$
                                         </span>
                                     </td>
+                                    <td><a class="nav-link" href="#"><i class='CartTrash bx bx-trash bx-sm p-2'></i></a></td>
                                 </tr>
 
                                 TotalPrice += price;
@@ -73,4 +77,4 @@
     }
     <div class="d-flex justify-content-end fs-5 text-light"><span class="me-2 ps-2 pe-2 bg-secondary">Total Price:</span><span class="ps-2 pe-2 bg-secondary">@TotalPrice$</span></div>
 </div>
-
+</div>

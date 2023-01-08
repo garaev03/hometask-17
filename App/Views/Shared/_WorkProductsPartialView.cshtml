@@ -8,7 +8,7 @@
 {
     MainImage = prod.Images.FirstOrDefault(x => x.isMain == true);
     <div class="col-sm-6 col-lg-4 mb-5 project @prod.Category.Name.ToLower()">
-        <div class="overflow-hidden card mb-5 mx-5 m-sm-0" style="height: 46rem">
+        <div class="overflow-hidden card mb-5 mx-5 m-sm-0" style="height: 38rem;">
             @if (MainImage != null)
             {
                 <img class="card-img-top" src="~/assets/img/Product Images/@MainImage.Path" alt="...">
@@ -19,12 +19,12 @@
             }
             <div class="card-body">
                 <h5 class="card-title light-300 text-dark">@prod.Name</h5>
-                <p class="card-text light-300 text-dark">
-                    @prod.Description
+                <div class="card-text light-300 text-dark" style="height:8rem">
+                    <div class="mb-2">@prod.Title</div>
                     <a asp-controller="Work" asp-action="Single" asp-route-id="@prod.Id" class="btn btn-primary btn-sm rounded-pill text-decoration-none text-light light-300" style="font-size: 0.7rem; height:1.5rem">
                         <span>Read more <i class='bx bxs-hand-right ms-1'></i></span>
                     </a>
-                </p>
+                </div>
                 <div class="d-flex justify-content-between">
                     <div class="d-flex justify=content-center align-content-center ms-2 border border-success border-1 rounded-pill" style="height:45px">
                         <a class="MinusProduct nav-link"><i class='bx bx-minus-circle bx-sm pt-1'></i></a>

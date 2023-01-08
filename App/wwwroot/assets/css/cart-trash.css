@@ -1,0 +1,12 @@
+.CartTrash{
+    border-color: #9d2318;
+    border-radius: 1.3rem;
+    border-style: solid;
+    border-width: 1px;
+    color: #9d2318;
+}
+
+.CartTrash:hover{
+    background-color: #9d2318;
+    color: white;
+}
