@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ejG1Rvn+rXKi8/q4yqzF+4cAlBzE64vkvISjrRmCgcQ=",
+  "Hash": "RirzcTb7oUBKF8BbS16WyPeB57TUwvEj7SBHaVrQbmg=",
   "Source": "hometask-17",
   "BasePath": "_content/hometask-17",
   "Mode": "Default",
@@ -4010,6 +4010,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\custom.js"
+    },
+    {
+      "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\delete-cart.js",
+      "SourceId": "hometask-17",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\",
+      "BasePath": "_content/hometask-17",
+      "RelativePath": "assets/js/delete-cart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\delete-cart.js"
     },
     {
       "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\fslightbox.js",

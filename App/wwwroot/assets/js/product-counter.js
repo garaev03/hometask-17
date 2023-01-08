@@ -24,7 +24,8 @@ function ProductCounters(MinusProduct, PlusProduct) {
         if (btn.parentElement.getAttribute("class").includes("CartProductCounterDiv")){
             let price = btn.parentElement.parentElement.parentElement.children[4].children[0]
             let id = btn.parentElement.parentElement.parentElement.children[2].children[0].getAttribute("data-id")
-            Change(btn.parentElement, count, price,GetDefaultPrice(count-1,parseInt(price.innerHTML)), id)
+            let Plus=true
+            Change(btn.parentElement, count, price,GetDefaultPrice(count-1,parseInt(price.innerHTML)), id, Plus)
         }
     }))
 
@@ -36,7 +37,8 @@ function ProductCounters(MinusProduct, PlusProduct) {
             if (btn.parentElement.getAttribute("class").includes("CartProductCounterDiv")) {
                 let price = btn.parentElement.parentElement.parentElement.children[4].children[0]
                 let id = btn.parentElement.parentElement.parentElement.children[2].children[0].getAttribute("data-id")
-                Change(btn.parentElement, count, price,GetDefaultPrice(count+1,parseInt(price.innerHTML)), id)
+                let Minus=false
+                Change(btn.parentElement, count, price,GetDefaultPrice(count+1,parseInt(price.innerHTML)), id, Minus)
             }
         }
     }))

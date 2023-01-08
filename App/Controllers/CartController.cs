@@ -42,26 +42,24 @@ namespace hometask_17.Controllers
 
         public bool AddToCart(int id, int count)
         {
-            bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
-            if (!CheckExistenceProduct)
+            if (!CheckProductExistence(id))
                 return false;
 
-            if (count == 0)
+            if (count <= 0)
                 return false;
 
             List<CartVM> carts = CheckCookiesCart();
 
-            AddToCookiesCart(id, count, carts, CheckProductExistenceInCart(id, count,carts));
+            AddToCookiesCart(id, count, carts, CheckProductExistenceInCart(id, count, carts));
 
             return true;
         }
         public bool Edit(int id, int count)
         {
-            bool CheckExistenceProduct = _context.WorkProducts.Any(p => p.Id == id && !p.isDeleted);
-            if (!CheckExistenceProduct)
+            if (!CheckProductExistence(id))
                 return false;
 
-            if (count == 0)
+            if (count <= 0)
                 return false;
 
             List<CartVM> carts = CheckCookiesCart();
@@ -72,7 +70,7 @@ namespace hometask_17.Controllers
                 if (cart.WorkProductId == id)
                 {
                     cart.Count = count;
-                    ProductExists=true;
+                    ProductExists = true;
                     break;
                 }
             }
@@ -81,7 +79,25 @@ namespace hometask_17.Controllers
 
             return true;
         }
+        public bool Delete(int id)
+        {
+            if (!CheckProductExistence(id))
+                return false;
 
+            List<CartVM> carts = CheckCookiesCart();
+            CartVM DeletedCart=GetProductInCart(id, carts);
+            if (DeletedCart == null)
+                return false;
+
+            DeleteFromCookiesCart(carts, DeletedCart);
+            return true;
+        }
+        private bool CheckProductExistence(int id)
+        {
+            if (_context.WorkProducts.Any(p => p.Id == id && !p.isDeleted))
+                return true;
+            return false;
+        }
         private bool CheckProductExistenceInCart(int id, int count, List<CartVM> carts)
         {
             foreach (var cart in carts)
@@ -105,6 +121,15 @@ namespace hometask_17.Controllers
 
             return carts;
         }
+        private CartVM? GetProductInCart(int id, List<CartVM> carts)
+        {
+            foreach (var cart in carts)
+            {
+                if (cart.WorkProductId == id)
+                    return cart;
+            }
+            return null;
+        }
         private void AddToCookiesCart(int id, int count, List<CartVM> cart, bool existenceProduct)
         {
             if (!existenceProduct)
@@ -112,6 +137,11 @@ namespace hometask_17.Controllers
             string cookiesCart = JsonSerializer.Serialize(cart);
             Response.Cookies.Append(COOKIES_CART, cookiesCart);
         }
-
+        private void DeleteFromCookiesCart(List<CartVM> cart, CartVM DeletedCart)
+        {
+            cart.Remove(DeletedCart);
+            string cookiesCart = JsonSerializer.Serialize(cart);
+            Response.Cookies.Append(COOKIES_CART, cookiesCart);
+        }
     }
 }

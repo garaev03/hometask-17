@@ -941,6 +941,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
     {
+      "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\delete-cart.js",
+      "PackagePath": "staticwebassets\\assets\\js\\delete-cart.js"
+    },
+    {
       "Id": "C:\\Users\\samir\\OneDrive\\Desktop\\codeAcadem\\Hometasks\\hometask-17\\App\\wwwroot\\assets\\js\\fslightbox.js",
       "PackagePath": "staticwebassets\\assets\\js\\fslightbox.js"
     },

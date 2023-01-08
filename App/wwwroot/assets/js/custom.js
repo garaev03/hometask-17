@@ -31,6 +31,7 @@ loadMore.addEventListener("click", () => {
         .then(text => {
             $(".products").append(text)
             skip += take
+
             //refreshing add to cart buttons
             let newaddtocartbutton = []
             document.querySelectorAll(".ProductAddToCart")
@@ -47,6 +48,7 @@ loadMore.addEventListener("click", () => {
                 })
             ClickedAddToCart(newaddtocartbutton)
             //
+
             //refreshing product counters  
             let newPlusProduct = []
             let newMinusProduct = []
@@ -76,7 +78,8 @@ loadMore.addEventListener("click", () => {
                 })
             ProductCounters(newMinusProduct, newPlusProduct)
             //
-            if (listCount < skip + take) {
+
+            if (listCount <= skip ) {
                 $(".loadMore").remove()
             }
         })
